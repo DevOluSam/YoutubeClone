@@ -8,8 +8,8 @@ import { fetchFromAPI } from "../utils/FetchFromAPI";
 
 
 const VideoDetail = () => {
-    const [videoDetail, setVideoDetail] = useState(null);
-    const [videos, setVideos] = useState(null);
+    const [videoDetail, setVideoDetail] = useState<any>(null);
+    const [videos, setVideos] = useState<any>(null);
     const { id } = useParams();
     useEffect(() => {
         fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) => setVideoDetail(data.items[0]));
@@ -32,7 +32,7 @@ const VideoDetail = () => {
                         </Typography>
                         <Stack direction='row' justifyContent='space-between' sx={{ color: '#fff'}} py={1} px={2}>
                             <Link to={`/channel/${channelId}`}>
-                                <Typography variant={{ sm: 'subtitle1', md: 'h6'}} color='#fff'>
+                                <Typography variant= 'subtitle1' color='#fff'>
                                     {channelTitle}
                                     <CheckCircle  sx={{ fontSize: '12px', color: 'gray', ml: '5px'}}/>
                                 </Typography>
